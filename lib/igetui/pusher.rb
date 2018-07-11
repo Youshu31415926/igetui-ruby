@@ -20,6 +20,7 @@ module IGeTui
         'offlineExpireTime' => message.offline_expire_time,
         'appId' => app_id,
         'clientId' => client.client_id,
+        'alias' => client.alias_name,
         'type' => 2, #default is message
         'pushType' => template.get_push_type
       }
@@ -85,6 +86,15 @@ module IGeTui
       http_post_json(data)
     end
 
+    def get_client_id(alias_name)
+      data = {
+        'action' => 'alias_query',
+        'appkey' => app_key,
+        'appid' => app_id,
+        'alias' => alias_name
+      }
+      http_post_json(data)
+    end
 
     def get_content_id(message)
       template = message.data

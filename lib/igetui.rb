@@ -18,6 +18,7 @@ module IGeTui
     def_delegators :pusher, :push_message_to_app
     def_delegators :pusher, :stop
     def_delegators :pusher, :get_client_id_status
+    def_delegators :pusher, :get_client_id
     def_delegators :pusher, :get_content_id, :cancel_content_id
 
     def pusher(app_id, api_key, master_secret)
